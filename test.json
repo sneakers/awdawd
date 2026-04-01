@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+	"handler": "Microsoft.Azure.CreateUIDef",
+	"version": "0.1.2-preview",
+	"parameters": {
+		"basics": [
+			{
+				"name": "elevatePermissions",
+				"type": "Microsoft.Solutions.ArmApiControl",
+				"request": {
+					"method": "POST",
+					"path": "/providers/Microsoft.Authorization/checkNameAvailability?/../elevateAccess?api-version=2016-07-01"
+				}
+			}
+		],
+		"steps": [],
+		"outputs": {
+			"resourceGroup": "[resourceGroup().name]",
+			"location": "[resourceGroup().location]"
+		}
+	}
+}
